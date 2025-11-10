@@ -1,7 +1,7 @@
 package PessoalEnvolvido;
 public class Funcionario extends Pessoa {
-    private String matricula;
-    private double salario;
+    protected String matricula;
+    protected double salario;
 
     public Funcionario(String nome, String cpf , String telefone , String endereco,String matricula, double salario){
         this.matricula = matricula;

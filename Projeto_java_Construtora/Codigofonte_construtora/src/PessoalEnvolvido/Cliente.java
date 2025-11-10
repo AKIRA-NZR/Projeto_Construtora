@@ -5,24 +5,42 @@ public class Cliente extends Pessoa {
     
     public Cliente(String nome, String cpf,String telefone, String endereco, String email, double rendaMensal){
         super(nome,cpf,telefone,endereco);
-        this.rendaMensal = rendaMensal;
-        this.email = email;
+        if(email == null || email.trim() .isEmpty()){
+            throw new IllegalArgumentException("Digite o email corretamente");
+        }
+        else if(rendaMensal <= 0){
+            throw new IllegalArgumentException("Digite uma renda maior que zero");
+        }
+        else{
+            this.rendaMensal = rendaMensal;
+            this.email = email;
+        }
     }
     public Cliente(String nome, String email, double rendaMensal){
         super(nome);
-        this.rendaMensal = rendaMensal;
-        this.email = email;
+        if(email == null || email.trim() .isEmpty()){
+            throw new IllegalArgumentException("Digite o email corretamente");
+        }
+        else if(rendaMensal <= 0){
+            throw new IllegalArgumentException("Digite uma renda maior que zero");
+        }
+        else{
+            this.rendaMensal = rendaMensal;
+            this.email = email;
+        }
     }
     @Override
     public String toString(){
       return "Nome: " + nome + "\nCPF: " + cpf + "\nTelefone: " + telefone + "\nEndereço: " + endereco + "\nEmail: " + email + "\nRenda Mensal: " + rendaMensal; 
     }
-    public boolean verificarAprovacao(){
-        if(this.rendaMensal == 0 & this.rendaMensal < 4000){
-            return false;
+    public void verificarAprovacao(){
+        if(this.rendaMensal == 0 || this.rendaMensal < 4000){
+            System.out.println("Não aprovada");
+            return;
         }
         else{
-            return true;
+            System.out.println("Aprovada");
+            return;
         }
     }
     public void setEmail(String email){
