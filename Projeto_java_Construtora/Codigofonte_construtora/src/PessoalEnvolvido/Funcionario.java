@@ -9,9 +9,17 @@ public class Funcionario extends Pessoa {
         super(nome,cpf,telefone,endereco);
     }
     public Funcionario(String nome, String matricula,double salario){
-        this.matricula = matricula;
-        this.salario = salario;
         super(nome);
+        if(matricula == null || matricula.trim() .isEmpty()){
+            throw new IllegalArgumentException("Matrícula deve conter algum valor");
+        }
+        else if(salario <= 0){
+            throw new IllegalArgumentException("Salário deve ser maior que zero");
+        }
+        else{
+            this.matricula = matricula;
+            this.salario = salario; 
+        }
     }
     @Override
     public String toString(){

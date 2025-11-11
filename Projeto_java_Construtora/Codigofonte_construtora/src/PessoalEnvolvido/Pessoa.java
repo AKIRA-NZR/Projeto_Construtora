@@ -7,16 +7,35 @@ public class Pessoa {
 
     //Primeiro construtor
     public Pessoa(String nome,String cpf,String telefone,String endereco){
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
+        if(nome == null || nome.trim() .isEmpty()){
+            throw new IllegalArgumentException("O campo nome deve ser inserido corretamente");
+        }
+        else if(cpf == null || cpf.trim() .isEmpty()){
+            throw new IllegalArgumentException("CPF não pode estar vazio");
+        }
+        else if(telefone == null || telefone.trim() .isEmpty()){
+            throw new IllegalArgumentException("Telefone não pode estar vazio");
+        }
+        else if(endereco == null || endereco.trim() .isEmpty()){
+            throw new IllegalArgumentException("Endereço não pode estar vazio");
+        }
+        else{
+            this.nome = nome;
+            this.cpf = cpf;
+            this.telefone = telefone;
+            this.endereco = endereco;
+        }
     }
     // Segundo construtor (vazio)
     public Pessoa(){}
     // Terceiro construtor (Recebe apenas o nome)
     public Pessoa(String nome){
-        this.nome = nome;
+         if(nome == null || nome.trim() .isEmpty()){
+            throw new IllegalArgumentException("O campo Nome deve ser inserido corretamente");
+        }
+        else{
+            this.nome = nome;  
+        }
     }
     // Método ToString para mostrar dados
     @Override

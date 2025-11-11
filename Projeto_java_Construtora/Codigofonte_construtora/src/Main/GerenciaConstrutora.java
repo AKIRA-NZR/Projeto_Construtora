@@ -1,15 +1,17 @@
 package Main;
 import PessoalEnvolvido.*;
+import Produto.Apartamento;
+import Produto.Empreendimento;
+import Produto.Venda;
 import javax.swing.JOptionPane;
 public class GerenciaConstrutora {
     public static void main(String[] args) throws Exception {
-        Corretor c1 = new Corretor("Deyvid", "123445", 5000, "343434",500000);
-        c1.resgistrarVendas(20000);
-        JOptionPane.showMessageDialog(null, c1.toString(), "Dados do corretor", JOptionPane.INFORMATION_MESSAGE);
-        Cliente cliente1 = new Cliente("Gabriel", "teste@gmail.com", 1);
-        cliente1.verificarAprovacao();
-        System.out.println(cliente1.toString());
-
+        Empreendimento NovaJardim = new Empreendimento("Nova Jardim", "Avenida getulio vargas nº 3567");
+        Apartamento ap1 = new Apartamento(301, 3, 70, 3, 200000);
+        NovaJardim.adicionarApartamento(ap1);
+        NovaJardim.ListaDeApartamentosDisponiveis();
+        
     
-    }
-}
+    }   
+
+} 
