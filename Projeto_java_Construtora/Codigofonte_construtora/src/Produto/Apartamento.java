@@ -15,10 +15,10 @@ public class Apartamento {
         else if(andar <= 0){
             throw new IllegalArgumentException("O andar do apartamento não pode ser vazio");
         }
-        else if(tamanho <= 0 & tamanho > 100){
+        else if(tamanho <= 0 || tamanho > 100){
             throw new IllegalArgumentException("A metragem do apartamento não pode exceder 100 metros ou ser menor que 0");
         }
-        else if(numeroQuartos <= 0 & numeroQuartos > 5){
+        else if(numeroQuartos < 0 || numeroQuartos > 5){
             throw new IllegalArgumentException("O número de quartos não pode exceder 5 e ser menor que zero");
         }
         else if(valor <= 0){
@@ -36,14 +36,6 @@ public class Apartamento {
     @Override
     public String toString(){
         return "Número: " + numero + "\nAndar: " + andar + "\nTamanho(Metros): " + tamanho + "\nNúmero de quartos: " + numeroQuartos + "\nValor do apartamento: " + "R$" + valor ;
-    }
-    public void venda(){
-        if(this.status.equals("Disponivel")){
-            this.status = "Vendido";
-        }
-        else{
-            System.out.println("Produto está indisponivel");
-        }
     }
     public void setNumero(int numero){
           if(numero <= 0 ){
@@ -88,6 +80,17 @@ public class Apartamento {
     }
     public int getNumeroQuartos(){
         return this.numeroQuartos;
+    }
+    public void setStatus(String status){
+        if(status == null || status.trim() .isEmpty()){
+            throw new IllegalArgumentException("Status não pode ser vazio!");
+        }
+        if(this.status != null & this.status.equals("Vendido")){
+            throw new IllegalArgumentException("Apartamento " + this.numero +  " Já foi vendido");
+        }
+        else{
+            this.status = status;
+        }
     }
     public String getStatus(){
         return this.status;

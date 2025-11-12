@@ -5,7 +5,7 @@ public class Empreendimento{
     private String nomeEmp;
     private String endereco;
     private List<Apartamento> listaApartamento;
-    //Construtores  mano? ode ta o o atributo true? atributo true?
+    
     public Empreendimento(String nomeEmp, String endereco){
         if(nomeEmp == null || nomeEmp.trim() .isEmpty()){
             throw new IllegalArgumentException("Nome não pode estar vazio");

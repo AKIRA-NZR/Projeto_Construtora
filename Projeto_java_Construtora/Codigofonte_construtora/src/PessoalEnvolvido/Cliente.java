@@ -35,11 +35,11 @@ public class Cliente extends Pessoa {
     }
     public void verificarAprovacao(){
         if(this.rendaMensal == 0 || this.rendaMensal < 4000){
-            System.out.println("Não aprovada");
+            System.out.println("Cliente " + getNome() + " Não aprovado");
             return;
         }
         else{
-            System.out.println("Aprovada");
+            System.out.println("Cliente " + getNome() + " Aprovado");
             return;
         }
     }

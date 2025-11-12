@@ -32,17 +32,6 @@ public Venda(Cliente cliente, Corretor corretor, Apartamento apartamentoVendido,
     this.valorfinal = valorfinal;
 
 }
-
-public void confirmarvenda(){
-  if  (apartamentoVendido.getStatus().equals("Disponivel")){
-        System.out.println(" Venda confirmada para o cliente: " + cliente.getNome() + " do apartamento nº: " + apartamentoVendido.getNumero() + " pelo corretor: " + corretor.getNome() + " pelo valor final de: R$" + String.format("%.2f", this.valorfinal));
-    } else {
-        System.out.println(" Não é possível realizar a venda, o apartamento nº: " + apartamentoVendido.getNumero() + " não está disponível.");
-    
-  } 
-}
-
-//metodos get  muda? esse metodo tem que se conectar com o meu , tu não pode vender um apartamento se ele n estiver disponivel e o metodo só ta mostrando uma mensagem, ele não acontece nada
 public Cliente getCliente() {
     return cliente;
 }
@@ -76,7 +65,6 @@ public void setCorretor(Corretor corretor) {
 
     }
 }
-
 public void setapartamentoVendido(Apartamento apartamentoVendido){
     if (apartamentoVendido == null) {
         throw new IllegalArgumentException("selecionar um apartamento com o corretor");
@@ -90,7 +78,7 @@ public void setvalorfinal(Double valorfinal){
     } else if (valorfinal == 0) {
         throw new IllegalArgumentException(" O valor final deve ser maior que zero ");
     }else{
-        this.valorfinal = valorfinal + (valorfinal * 0.06);
+        this.valorfinal = valorfinal;
     }
 }
 
